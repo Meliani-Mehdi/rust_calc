@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>transactiondialog</class>
+ <widget class="QDialog" name="transactiondialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>480</width>
+    <height>640</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow {
+    background-color: #f8f9fa;
+}
+
+QTabWidget::pane {
+    border: 1px solid #dee2e6;
+    background-color: white;
+}
+
+QTabWidget::tab-bar {
+    left: 10px;
+}
+
+QTabBar::tab {
+    background-color: #e9ecef;
+    border: 1px solid #dee2e6;
+	width: 300px;
+    padding: 10px 20px;
+    margin-right: 5px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    font-weight: bold;
+    color: #495057;
+}
+
+QTabBar::tab:selected {
+    background-color: white;
+    border-bottom-color: white;
+    color: #007bff;
+}
+
+QTabBar::tab:hover {
+    background-color: #f8f9fa;
+}
+
+QGroupBox {
+    font-weight: bold;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    margin-top: 10px;
+    padding-top: 5px;
+    background-color: white;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    left: 10px;
+    padding: 0 10px 0 10px;
+    color: #495057;
+}
+
+QPushButton {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: bold;
+    min-height: 25px;
+}
+
+QPushButton:hover {
+    background-color: #0056b3;
+}
+
+QPushButton:pressed {
+    background-color: #004085;
+}
+
+QPushButton#deleteButton {
+    background-color: #dc3545;
+}
+
+QPushButton#deleteButton:hover {
+    background-color: #c82333;
+}
+
+QPushButton#refreshButton {
+    background-color: #28a745;
+}
+
+QPushButton#refreshButton:hover {
+    background-color: #218838;
+}
+
+QLineEdit, QComboBox, QSpinBox, QDoubleSpinBox, QDateEdit {
+    border: 2px solid #ced4da;
+    border-radius: 6px;
+    padding: 8px;
+    background-color: white;
+    font-size: 13px;
+}
+
+QLineEdit:focus, QComboBox:focus, QSpinBox:focus, QDoubleSpinBox:focus, QDateEdit:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+QTableWidget {
+    gridline-color: #dee2e6;
+    background-color: white;
+    alternate-background-color: #f8f9fa;
+    selection-background-color: #007bff;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+}
+
+QTableWidget::item {
+    padding: 8px;
+    border: none;
+}
+
+QTableWidget::item:selected {
+    background-color: #007bff;
+    color: white;
+}
+
+QHeaderView::section {
+    background-color: #e9ecef;
+    padding: 10px;
+    border: none;
+    border-right: 1px solid #dee2e6;
+    border-bottom: 1px solid #dee2e6;
+    font-weight: bold;
+    color: #495057;
+}
+
+QLabel {
+    color: #495057;
+    font-weight: bold;
+}
+
+QScrollArea {
+    border: none;
+    background-color: transparent;
+}</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QWidget" name="widget_2" native="true"/>
+   </item>
+   <item>
+    <widget class="QLabel" name="account_name_lab">
+     <property name="font">
+      <font>
+       <pointsize>18</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Account Name</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignmentFlag::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="balnce_lab">
+     <property name="font">
+      <font>
+       <pointsize>14</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>balance:</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignmentFlag::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QLineEdit" name="amount"/>
+     </item>
+     <item>
+      <widget class="QComboBox" name="type">
+       <item>
+        <property name="text">
+         <string>Deposit</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Withdraw</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QWidget" name="widget" native="true"/>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Orientation::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::StandardButton::Abort|QDialogButtonBox::StandardButton::Save</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>transactiondialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>254</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>transactiondialog</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>316</x>
+     <y>260</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
