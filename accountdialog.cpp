@@ -12,6 +12,10 @@ void accountdialog::set_client(QString name) {
     ui->client_info->setText(name);
 }
 
+bool accountdialog::get_tpe() {
+    return ui->tpeCheck->isChecked();
+}
+
 accountdialog::~accountdialog()
 {
     delete ui;

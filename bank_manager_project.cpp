@@ -212,7 +212,8 @@ void bank_manager_project::setupAccountTable() {
     accountModel->setHeaderData(0, Qt::Horizontal, "ID");
     accountModel->setHeaderData(1, Qt::Horizontal, "Client ID");
     accountModel->setHeaderData(2, Qt::Horizontal, "Balance");
-    accountModel->setHeaderData(3, Qt::Horizontal, "Creation Date");
+    accountModel->setHeaderData(3, Qt::Horizontal, "TPE");
+    accountModel->setHeaderData(4, Qt::Horizontal, "Creation Date");
 
     ui->accountTable->setModel(accountModel);
     ui->accountTable->setSelectionBehavior(QAbstractItemView::SelectRows);
@@ -261,7 +262,7 @@ void bank_manager_project::setupButtons(){
         dlg.set_client(client.value("name").toString());
 
         if (dlg.exec() == QDialog::Accepted) {
-            if (!db->addAccount(used_client_id)) {
+            if (!db->addAccount(used_client_id, dlg.get_tpe())) {
                 QMessageBox::warning(this, "Error", "Failed to add account");
             } else {
                 accountModel->select();

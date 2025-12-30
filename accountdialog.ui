@@ -164,7 +164,7 @@ QScrollArea {
     background-color: transparent;
 }</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout" stretch="1,0,0,2,0">
+  <layout class="QVBoxLayout" name="verticalLayout" stretch="1,0,0,0,0,2,0">
    <item>
     <spacer name="verticalSpacer_2">
      <property name="orientation">
@@ -217,6 +217,48 @@ for the client:</string>
      <property name="alignment">
       <set>Qt::AlignmentFlag::AlignCenter</set>
      </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="widget_2" native="true">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>50</height>
+      </size>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="widget" native="true">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>40</height>
+      </size>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QLabel" name="label_2">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>With TPE:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="tpeCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </item>
    <item>

@@ -33,6 +33,7 @@ void DatabaseManager::initializeTables() {
                "id INTEGER PRIMARY KEY AUTOINCREMENT,"
                "client_id INTEGER,"
                "balance REAL DEFAULT 0.0,"
+               "tpe INTEGER DEFAULT 0,"
                "creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,"
                "FOREIGN KEY(client_id) REFERENCES Client(id))");
 
@@ -113,10 +114,11 @@ bool DatabaseManager::deleteClient(int id) {
 }
 
 // ---------- ACCOUNT ----------
-bool DatabaseManager::addAccount(int clientId) {
+bool DatabaseManager::addAccount(int clientId, bool tpe) {
     QSqlQuery query;
-    query.prepare("INSERT INTO Account (client_id) VALUES (?)");
+    query.prepare("INSERT INTO Account (client_id, tpe) VALUES (?, ?)");
     query.addBindValue(clientId);
+    query.addBindValue(tpe);
     return query.exec();
 }
 
@@ -136,6 +138,7 @@ QMap<QString, QVariant> DatabaseManager::getAccountById(int id) {
         row["id"] = query.value("id");
         row["client_id"] = query.value("client_id");
         row["balance"] = query.value("balance");
+        row["tpe"] = query.value("tpe");
         row["creation_date"] = query.value("creation_date");
     }
 
@@ -150,6 +153,7 @@ QVector<QMap<QString, QVariant>> DatabaseManager::getAllAccounts() const {
         row["id"] = query.value("id");
         row["client_id"] = query.value("client_id");
         row["balance"] = query.value("balance");
+        row["tpe"] = query.value("tpe");
         row["creation_date"] = query.value("creation_date");
         results.append(row);
     }
@@ -167,6 +171,7 @@ QVector<QMap<QString, QVariant>> DatabaseManager::getAccountsByClient(int client
             row["id"] = query.value("id");
             row["client_id"] = query.value("client_id");
             row["balance"] = query.value("balance");
+            row["tpe"] = query.value("tpe");
             row["creation_date"] = query.value("creation_date");
             results.append(row);
         }

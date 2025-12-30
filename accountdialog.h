@@ -15,6 +15,7 @@ public:
     explicit accountdialog(QWidget *parent = nullptr);
     ~accountdialog();
     void set_client(QString name);
+    bool get_tpe();
 
 private:
     Ui::accountdialog *ui;

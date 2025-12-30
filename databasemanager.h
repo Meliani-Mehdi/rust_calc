@@ -24,7 +24,7 @@ public:
     bool deleteClient(int id);
 
     // ---------- ACCOUNT ----------
-    bool addAccount(int clientId);
+    bool addAccount(int clientId, bool tpe);
     QMap<QString, QVariant> getAccountById(int id);
     QVector<QMap<QString, QVariant>> getAllAccounts() const;
     QVector<QMap<QString, QVariant>> getAccountsByClient(int clientId);
